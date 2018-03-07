@@ -53,6 +53,7 @@ def main():
         print 'B: ', b
 
     who_am_i()
+    get_temp()
 
     bus.close()
 
