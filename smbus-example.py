@@ -58,7 +58,8 @@ def main():
 
     calibrate()
 
-    print type(REG_OUT_TEMP)
+    print who_am_i()
+    print 'temp: ' , get_temp()
     print 'pre  shifted: ' , bus.read_byte_data(DEVICE_ADDRESS, REG_CTRL_REG4)
     print 'post shifted: ' , get_scale()
 
