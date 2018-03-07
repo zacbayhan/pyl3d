@@ -40,19 +40,19 @@ REG_INT1_DURATION = 0x38
 bus = smbus.SMBus(1)    # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
 
 def who_am_i():
-    # returns bool, on default who am i value 11010011
+    # returns bool, based on value of who_am_i register
     return bus.read_byte_data(DEVICE_ADDRESS, REG_WHO_AM_I) == 0xD3
 
 def get_temp():
     return bus.read_byte_data(DEVICE_ADDRESS, REG_OUT_TEMP)
 
 def calibrate():
-    print who_am_i()
+    if(who_am_i() != True):
+        print 'ERROR: unmatched register'
 
 def main():
 
-    print 'I am: ', '{0:b}'.format(who_am_i())
-    print 'Temp: ', get_temp()
+    calibrate()
 
     bus.close()
 
