@@ -57,7 +57,7 @@ def get_scale():
     return ((bus.read_byte_data(DEVICE_ADDRESS, REG_CTRL_REG4) >> 0x04) & 0x03)
 
 def main():
-    print 'who_am_i: ', who_am_i()
+    print 'who_am_i: ', bin(who_am_i())
     print 'Temp: ', get_temp()
     print 'pre  shifted: ' , bus.read_byte_data(DEVICE_ADDRESS, REG_CTRL_REG4)
     print 'post shifted: ' , get_scale()
