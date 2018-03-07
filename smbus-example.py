@@ -39,14 +39,14 @@ REG_INT1_DURATION = 0x38
 
 bus = smbus.SMBus(1)    # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
 
-
-
 def who_am_i():
-    return bus.read_byte_data(DEVICE_ADDRESS, REG_WHO_AM_I)
+    # returns bool, on default who am i value 11010011
+    return bus.read_byte_data(DEVICE_ADDRESS, REG_WHO_AM_I) != 0xD3
 
 def get_temp():
     return bus.read_byte_data(DEVICE_ADDRESS, REG_OUT_TEMP)
 
+def calibrate():
 
 def main():
 
