@@ -41,19 +41,16 @@ REG_INT1_DURATION = 0x38
 
 
 def who_am_i():
-    print 'I am: ', bus.read_byte_data(DEVICE_ADDRESS, REG_WHO_AM_I)
+    return bus.read_byte_data(DEVICE_ADDRESS, REG_WHO_AM_I)
 
 def get_temp():
-    print 'temp: ', bus.read_byte_data(DEVICE_ADDRESS, REG_OUT_TEMP)
+    return bus.read_byte_data(DEVICE_ADDRESS, REG_OUT_TEMP)
 
 
 def main():
-    for i in range(100):
-        b = bus.read_byte_data(DEVICE_ADDRESS, 0001111)
-        print 'B: ', b
 
-    who_am_i()
-    get_temp()
+    print 'I am: ', who_am_i()
+    print 'Temp: ', get_temp()
 
     bus.close()
 
