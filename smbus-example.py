@@ -37,6 +37,9 @@ REG_INT1_THS_ZL   = 0x37
 REG_INT1_DURATION = 0x38
 
 
+bus = smbus.SMBus(1)    # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
+
+
 
 def who_am_i():
     return bus.read_byte_data(DEVICE_ADDRESS, REG_WHO_AM_I)
@@ -46,7 +49,6 @@ def get_temp():
 
 
 def main():
-    bus = smbus.SMBus(1)    # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
 
     print 'I am: ', who_am_i()
     print 'Temp: ', get_temp()
