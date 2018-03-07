@@ -1,6 +1,9 @@
 #!/usr/bin/python
 import smbus
 
+bus = smbus.SMBus(1)    # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
+
+
 DEVICE_ADDRESS = 0x69      #7 bit address (will be left shifted to add the read write bit)
 DEVICE_REG_MODE1 = 0x00
 DEVICE_REG_LEDOUT0 = 0x1d
@@ -36,8 +39,6 @@ REG_INT1_THS_ZH   = 0x36
 REG_INT1_THS_ZL   = 0x37
 REG_INT1_DURATION = 0x38
 
-
-bus = smbus.SMBus(1)    # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
 
 def who_am_i():
     # returns bool, based on value of who_am_i register
