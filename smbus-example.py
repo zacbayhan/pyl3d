@@ -50,7 +50,7 @@ def get_temp():
 
 def main():
 
-    print 'I am: ', who_am_i()
+    print 'I am: ', '{0:b}'.format(who_am_i())
     print 'Temp: ', get_temp()
 
     bus.close()
