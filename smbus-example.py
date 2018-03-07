@@ -45,8 +45,7 @@ def who_am_i():
     return bus.read_byte_data(DEVICE_ADDRESS, REG_WHO_AM_I)
 
 def get_temp():
-    temp = bus.read_byte_data(DEVICE_ADDRESS, REG_STATUS_REG)
-    print 'temp: ', temp
+    return bus.read_byte_data(DEVICE_ADDRESS, REG_STATUS_REG)
 
 
 def calibrate():
