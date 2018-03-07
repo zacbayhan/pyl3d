@@ -56,9 +56,6 @@ def get_scale():
 
 def main():
 
-    calibrate()
-
-    print who_am_i()
     print 'temp: ' , get_temp()
     print 'pre  shifted: ' , bus.read_byte_data(DEVICE_ADDRESS, REG_CTRL_REG4)
     print 'post shifted: ' , get_scale()
