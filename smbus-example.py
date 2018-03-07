@@ -57,7 +57,7 @@ def get_scale():
 
 
 def readRaw():
-    return bus.write_byte_data(DEVICE_ADDRESS, 0, REG_OUT_X_L)
+    return bus.write_byte_data(DEVICE_ADDRESS, REG_OUT_X_L, 0)
 
 
 
