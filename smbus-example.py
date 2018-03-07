@@ -45,8 +45,10 @@ def who_am_i():
     return bus.read_byte_data(DEVICE_ADDRESS, REG_WHO_AM_I) == 0xD3
 
 def get_temp():
-    return bus.read_byte_data(DEVICE_ADDRESS, int(0x26))
+    temp = bus.read_byte_data(DEVICE_ADDRESS, 0x26)
+    print 'temp: ', temp
 
+    
 def calibrate():
     if(who_am_i() != True):
         print 'ERROR: unmatched register'
