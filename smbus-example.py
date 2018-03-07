@@ -50,9 +50,14 @@ def calibrate():
     if(who_am_i() != True):
         print 'ERROR: unmatched register'
 
+def get_scale():
+    return (bus.read_byte_data(DEVICE_ADDRESS, REG_OUT_TEMP) >> 4) & 0x03)
+
 def main():
 
     calibrate()
+    print 'pre  shifted: ' , bus.read_byte_data(DEVICE_ADDRESS, REG_OUT_TEMP)
+    print 'post shifted: ' , get_scale()
 
     bus.close()
 
