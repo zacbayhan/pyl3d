@@ -38,16 +38,21 @@ REG_INT1_THS_ZH   = 0x36
 REG_INT1_THS_ZL   = 0x37
 REG_INT1_DURATION = 0x38
 
+
+
 def who_am_i():
     am = bus.read_byte_data(REG_WHO_AM_I)
     print am
+
+
+
 
 def main():
     for i in range(100):
         b = bus.read_byte_data(DEVICE_ADDRESS, 0001111)
         print 'B: ', b
 
-
+    who_am_i()
 
     bus.close()
 
