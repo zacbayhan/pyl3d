@@ -51,7 +51,7 @@ def calibrate():
         print 'ERROR: unmatched register'
 
 def get_scale():
-    return ((bus.read_byte_data(DEVICE_ADDRESS, REG_CTRL_REG4) >> hex(0x04)) & hex(0x03))
+    return ((bus.read_byte_data(DEVICE_ADDRESS, REG_CTRL_REG4) >> 0x04) & 0x03)
 
 def main():
 
